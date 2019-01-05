@@ -9,7 +9,7 @@ class Game {
 
     // Select and return a random phrase from the array of phrases stored in the game classes 'phrases' property
     getRandomPhrase(){                           
-        const randomPhrase = game.phrases[Math.floor(Math.random() * game.phrases.length)];
+        let randomPhrase = game.phrases[Math.floor(Math.random() * game.phrases.length)];
         return randomPhrase;
     }
     
@@ -19,11 +19,11 @@ class Game {
 
 
 // New Phrase objects stored in variables and put in the this.phrases property above.
-const phrase1 = new Phrase("Life is like a box of chocolates");
-const phrase2 = new Phrase("Go cubs go");
-const phrase3 = new Phrase("The new york giants");
-const phrase4 = new Phrase("I got egg on my crocks");
-const phrase5 = new Phrase("Praise the sun");
+let phrase1 = new Phrase("Life is like a box of chocolates");
+let phrase2 = new Phrase("Go cubs go");
+let phrase3 = new Phrase("The new york giants");
+let phrase4 = new Phrase("I got egg on my crocks");
+let phrase5 = new Phrase("Praise the sun");
 
 
 
