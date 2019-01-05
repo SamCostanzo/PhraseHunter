@@ -4,23 +4,30 @@
 // This file creats a new instance of the Game class, adds event listeners for the onscreen keyboard and a function to display the game
 
 
+// const phrase = new Phrase();
+// const game = new Game();
 
-// Function to hide the start screen overaly
-resetDisplay();
+// console.log(phrase);
+// console.log(game);
 
+// const phrase = new Phrase("Life is like a box of chocolates");
+// console.log(`Phrase - phrase: ${phrase.phrase}`);
 
+// const game = new Game();
 
-
-// Function is called when a player selects a letter. It disables the button on the onscreen keyboard and calls the handleInteraction() method of the Game class
-markButton();
-
-
-
-
-// Add an event listener to the "start game" button which calls the resetDisplay() function, creates a new Game object, and starts the game
-
-
+// game.phrases.forEach((phrase, index) => {
+// console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
+// });
 
 
+// var randomTest = game.phrases[Math.floor(Math.random() * game.phrases.length)];
 
-// Add event listeners to each of the keyboard buttons, so that clicking a button calls the  markButton() function
+// const logPhrase = (phrase) => {
+//     console.log(`Phrase - phrase: `, phrase.phrase);
+//     };
+//     const game = new Game();
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());

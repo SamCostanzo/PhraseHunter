@@ -1,45 +1,30 @@
-// to create a Game class with methods for starting and ending the game, handling interactions, getting random phrases, checking for a win, and removing a life counter.
-
-
-// Create the game class
 
 class Game {
-    constructor() {
-        missed: // Used to track the number of missed guesses
-        phrases: // An array of phrases to use with the game (only letters and spaces)
+    constructor(){
+        this.missed = 0;                                                      // Track the number of missed guesses. Starts at 0 since no guesses have been made at start of game
+        this.phrases = [phrase1, phrase2, phrase3, phrase4, phrase5];        // An array of phrases to use with the game. CreatePhrases() returns an array of phrases defined in the method below
+        this.activePhrase = null;                                           // This is the phrase object that's currently in play. Starts at null
     }
 
-    // Methods
 
-    // Randomly retrieves one of the phrases stored in the phrases array
-    getRandomPhrase() {
-
+    // Select and return a random phrase from the array of phrases stored in the game classes 'phrases' property
+    getRandomPhrase(){                           
+        const randomPhrase = game.phrases[Math.floor(Math.random() * game.phrases.length)];
+        return randomPhrase;
     }
-
-    // Checks to see if the button clicked by the player matches a letter in the phrase
-    // If NOT-call the removeLife() method
-    // If a letter matches-call the showMatchedLetter() method on the phrase and then call the checkForWin() method
-    handleInteraction() {
-
-    }
-
-    // Removes a life, removes a heart from the board, and ends the game if the player is out of lives
-    removeLife() {
-
-    }
-
-    // Checks to see if the player has selected all the letters
-    checkForWin() {
-
-    }
-
-    // Displays a message if the player wins or a different message if they lose
-    gameOver() {
-
-    }
-
-    // Calls the getRandomPhrase() method, and adds that phrase to the board by calling the phrase class addPhraseToDisplay() method
-    startGame() {
-
-    }
+    
 }
+
+
+
+
+// New Phrase objects stored in variables and put in the this.phrases property above.
+const phrase1 = new Phrase("Life is like a box of chocolates");
+const phrase2 = new Phrase("Go cubs go");
+const phrase3 = new Phrase("The new york football giants");
+const phrase4 = new Phrase("I got egg on my crocks");
+const phrase5 = new Phrase("thats what she said");
+
+
+
+
