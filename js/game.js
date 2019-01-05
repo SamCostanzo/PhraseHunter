@@ -21,9 +21,9 @@ class Game {
 // New Phrase objects stored in variables and put in the this.phrases property above.
 const phrase1 = new Phrase("Life is like a box of chocolates");
 const phrase2 = new Phrase("Go cubs go");
-const phrase3 = new Phrase("The new york football giants");
+const phrase3 = new Phrase("The new york giants");
 const phrase4 = new Phrase("I got egg on my crocks");
-const phrase5 = new Phrase("thats what she said");
+const phrase5 = new Phrase("Praise the sun");
 
 
 
