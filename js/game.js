@@ -1,29 +1,125 @@
-
 class Game {
-    constructor(){
-        this.missed = 0;                                                      // Track the number of missed guesses. Starts at 0 since no guesses have been made at start of game
-        this.phrases = [phrase1, phrase2, phrase3, phrase4, phrase5];        // An array of phrases to use with the game. CreatePhrases() returns an array of phrases defined in the method below
-        this.activePhrase = null;                                           // This is the phrase object that's currently in play. Starts at null
+    constructor() {
+        this.missed = 0;
+        this.phrases = [
+            new Phrase("Go Cubs Go"),
+            new Phrase("New York Giants"),
+            new Phrase("Not all who wander are lost"),
+            new Phrase("Thats the way the cookie crumbles"),
+            new Phrase("Here comes the sun")
+            ];
+        this.activePhrase = this.activePhrase;
     }
 
-
-    // Select and return a random phrase from the array of phrases stored in the game classes 'phrases' property
-    getRandomPhrase(){                           
-        let randomPhrase = game.phrases[Math.floor(Math.random() * game.phrases.length)];
+    /**
+* Selects random phrase from phrases property
+* @return {Object} Phrase object chosen to be used
+*/
+    getRandomPhrase(){
+        Math.floor(Math.random() * 5);
+        let randomPhrase = this.phrases[(Math.floor(Math.random() * this.phrases.length))];
+                
         return randomPhrase;
     }
-    
+
+   
+/**
+    * Begins game by selecting a random phrase and displaying it to user
+*/
+    startGame(){
+            const overLayDiv = document.getElementById("overlay");
+            overLayDiv.style.display = "none";
+            this.getRandomPhrase().addPhraseToDisplay();
+   }
+
+/**
+    * HandleInteraction has several supporting methods that all check for different interactions when a letter is chosen
+*/
+
+   handleInteraction(){
+       if(this.phrases.checkLetter(event)){
+            event.target.setAttribute('class', 'chosen');
+            this.phrase.showMatchedLetter(event);
+            this.checkForWin();
+       } else {
+           event.target.setAttribute('class', 'wrong');
+           this.removeLife();
+       }
+   }
+
+
+/**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
+   checkForWin(){
+       const letter = document.getElementById('phrase').firstElementChild.children;
+       let correct = 0;
+
+       for(let i = 0; i < letter.length; i++){
+            if(letter[i].className === 'show'){
+                correct += 0;
+            }
+            else if(letter[i].className === 'hide space'){
+                correct += 0;
+                // console.log(correct);
+            }
+            else {
+                correct -= 1;
+                // console.log(correct);
+            }
+       }
+
+            if(correct === 0){
+                // console.log(correct);
+                this.gameOver('win');
+            }   
+   }
+
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+   removeLife(){
+       const tries = document.getElementsByClassName('tries');
+       const lives = document.querySelectorAll('img');
+
+       this.missed += 1;
+
+       if(this.missed === 5){
+            this.gameOver('lose');
+       } else {
+           for(let i = 0; i < this.missed; i++){
+                lives[i].src = "images/lostHeart.png";
+           }
+       }
+   }
+
+
+  /**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+    gameOver(message){
+
+        document.getElementById('overlay').style.display = 'flex';
+        if(message === 'win'){
+            document.getElementById('game-over-message').innerText = 'You won! Refresh the page to play again :)';
+            document.getElementById('btn_reset').style.display = 'none';
+        } else {
+            document.getElementById('game-over-message').innerText = 'You lost. Refresh the page to try again';
+            document.getElementById('btn_reset').style.display = 'none';
+        }
+    }
+
 }
 
 
 
 
-// New Phrase objects stored in variables and put in the this.phrases property above.
-let phrase1 = new Phrase("Life is like a box of chocolates");
-let phrase2 = new Phrase("Go cubs go");
-let phrase3 = new Phrase("The new york giants");
-let phrase4 = new Phrase("I got egg on my crocks");
-let phrase5 = new Phrase("Praise the sun");
+
 
 
 

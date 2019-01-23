@@ -1,37 +1,115 @@
-// to create a Phrase class to handle the creation of phrases
-
-
 class Phrase {
     constructor(phrase){
-        this.phrase = phrase.toLowerCase();     // Set to the 'phrase' parameter, then converted To lower case
+        this.phrase = phrase.toLowerCase();
+        // this.phrase = game.getRandomPhrase();
     }
 
-    
-    // Display a phrase on the game board
-    addPhraseToDisplay(){
-        // let chosenPhrase = getRandomPhrase();
-        
-        for (let i = 0; i < phrase1.length; i++){
-            
-            const li = document.createElement("li");
-            const phraseDiv = document.getElementById("phrase");
-            
-            
-            li.appendChild(phraseDiv);
 
-            phraseDiv.appendChild(li);
+        addPhraseToDisplay(){
+            // const li = document.createElement("li");
+            const phraseDiv = document.getElementById("phrase");
+            const ul = phraseDiv.querySelector("ul");
+
+            // const splitArray = this.phrase.split("");
+            // const appendToDiv = phraseDiv.appendChild(ul);
+
+            for(let i = 0; i < this.phrase.length; i++){
+                const li = document.createElement("li");
+                if(this.phrase[i].match(/\s/)){
+                    li.className = 'hide space';
+                } else if(this.phrase[i].match(/[a-z]/)){
+                    li.className = 'hide letter ' + this.phrase[i];
+                    li.innerHTML = this.phrase[i];
+                }
+
+                    ul.appendChild(li);
+            }
+        }
+
+/**
+* Checks if passed letter is in phrase
+* @param (string) letter - Letter to check
+*/    checkLetter(){
+        let choice = event.target.innerText;
+        for(let letter of this.phrase){
+            if (choice === letter){
+                return true;
+            }
+        }
+                return false;
+    }
+
+/**
+* Displays passed letter on screen after a match is found
+* @param (string) letter - Letter to display
+*/
+    showMatchedLetter(){
+        const letter = document.getElementById('phrase').firstElementChild.children;
+        let guess = event.target.innerText;
+
+        for(let i = 0; i < letter.length; i++){
+            let check = letter[i].innerText;
+            if(guess === check){
+                letter[i].className = 'show';
+            }
         }
     }
+
+
+
+
 }
 
 
-// Loop over the current phrase - use var randomPhrase from game file
 
-// for every letter and space in the phrase, create an li element and append it to the ul of the phrase Div  
 
-// Be mindful of which classes add to what
 
-// Each letter starts out with a hide class, a letter class and then a class for the actual letter in the li.  
 
-// Each space needs a space class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
