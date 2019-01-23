@@ -8,7 +8,7 @@ class Game {
             new Phrase("Thats the way the cookie crumbles"),
             new Phrase("Here comes the sun")
             ];
-        this.activePhrase = this.activePhrase;
+        this.activePhrase = this.getRandomPhrase();
     }
 
     /**
@@ -36,16 +36,16 @@ class Game {
     * HandleInteraction has several supporting methods that all check for different interactions when a letter is chosen
 */
 
-   handleInteraction(){
-       if(this.phrases.checkLetter(event)){
-            event.target.setAttribute('class', 'chosen');
-            this.phrase.showMatchedLetter(event);
-            this.checkForWin();
-       } else {
-           event.target.setAttribute('class', 'wrong');
-           this.removeLife();
-       }
-   }
+//    handleInteraction(){
+//        if(this.phrases.checkLetter(event)){
+//             event.target.setAttribute('class', 'chosen');
+//             this.phrase.showMatchedLetter(event);
+//             this.checkForWin();
+//        } else {
+//            event.target.setAttribute('class', 'wrong');
+//            this.removeLife();
+//        }
+//    }
 
 
 /**
@@ -53,66 +53,66 @@ class Game {
 * @return {boolean} True if game has been won, false if game wasn't
 won
 */
-   checkForWin(){
-       const letter = document.getElementById('phrase').firstElementChild.children;
-       let correct = 0;
+//    checkForWin(){
+//        const letter = document.getElementById('phrase').firstElementChild.children;
+//        let correct = 0;
 
-       for(let i = 0; i < letter.length; i++){
-            if(letter[i].className === 'show'){
-                correct += 0;
-            }
-            else if(letter[i].className === 'hide space'){
-                correct += 0;
-                // console.log(correct);
-            }
-            else {
-                correct -= 1;
-                // console.log(correct);
-            }
-       }
+//        for(let i = 0; i < letter.length; i++){
+//             if(letter[i].className === 'show'){
+//                 correct += 0;
+//             }
+//             else if(letter[i].className === 'hide space'){
+//                 correct += 0;
+//                 // console.log(correct);
+//             }
+//             else {
+//                 correct -= 1;
+//                 // console.log(correct);
+//             }
+//        }
 
-            if(correct === 0){
-                // console.log(correct);
-                this.gameOver('win');
-            }   
-   }
+//             if(correct === 0){
+//                 // console.log(correct);
+//                 this.gameOver('win');
+//             }   
+//    }
 
 /**
 * Increases the value of the missed property
 * Removes a life from the scoreboard
 * Checks if player has remaining lives and ends game if player is out
 */
-   removeLife(){
-       const tries = document.getElementsByClassName('tries');
-       const lives = document.querySelectorAll('img');
+//    removeLife(){
+//        const tries = document.getElementsByClassName('tries');
+//        const lives = document.querySelectorAll('img');
 
-       this.missed += 1;
+//        this.missed += 1;
 
-       if(this.missed === 5){
-            this.gameOver('lose');
-       } else {
-           for(let i = 0; i < this.missed; i++){
-                lives[i].src = "images/lostHeart.png";
-           }
-       }
-   }
+//        if(this.missed === 5){
+//             this.gameOver('lose');
+//        } else {
+//            for(let i = 0; i < this.missed; i++){
+//                 lives[i].src = "images/lostHeart.png";
+//            }
+//        }
+//    }
 
 
   /**
 * Displays game over message
 * @param {boolean} gameWon - Whether or not the user won the game
 */
-    gameOver(message){
+    // gameOver(message){
 
-        document.getElementById('overlay').style.display = 'flex';
-        if(message === 'win'){
-            document.getElementById('game-over-message').innerText = 'You won! Refresh the page to play again :)';
-            document.getElementById('btn_reset').style.display = 'none';
-        } else {
-            document.getElementById('game-over-message').innerText = 'You lost. Refresh the page to try again';
-            document.getElementById('btn_reset').style.display = 'none';
-        }
-    }
+    //     document.getElementById('overlay').style.display = 'flex';
+    //     if(message === 'win'){
+    //         document.getElementById('game-over-message').innerText = 'You won! Refresh the page to play again :)';
+    //         document.getElementById('btn_reset').style.display = 'none';
+    //     } else {
+    //         document.getElementById('game-over-message').innerText = 'You lost. Refresh the page to try again';
+    //         document.getElementById('btn_reset').style.display = 'none';
+    //     }
+    // }
 
 }
 

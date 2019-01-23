@@ -17,7 +17,7 @@ document.getElementById('qwerty').addEventListener('click', (event) => {
 
 
 
-console.log(`Active Phrase - phrase: ${game.activePhrase}`);
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 
 
 
@@ -27,10 +27,10 @@ function resetDisplay(){
 }
 
 
-function markButton(event){
-    game.handleInteraction(event)
-    event.target.disabled = true;
-}
+// function markButton(event){
+//     game.handleInteraction(event)
+//     event.target.disabled = true;
+// }
 
 
 
