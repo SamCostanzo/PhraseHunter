@@ -1,36 +1,32 @@
-
-
 const startGameButton = document.getElementById("btn__reset");
 const game = new Game();
     
-    startGameButton.addEventListener('click', () => {
+startGameButton.addEventListener('click', () => {
         resetDisplay();
         game.startGame();
     });
-
-
-document.getElementById('qwerty').addEventListener('click', (event) => {
-    if(event.target.tagName === 'BUTTON'){
-        markButton(event);
-    }
-});
-
-
-
-console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
-
-
-
 
 function resetDisplay(){
     document.getElementById('overlay').style.display = 'none';
 }
 
 
-// function markButton(event){
-//     game.handleInteraction(event)
-//     event.target.disabled = true;
-// }
+
+
+
+
+document.getElementById('qwerty').addEventListener('click', (event) => {
+    if(event.target.tagName === 'BUTTON'){
+        markButton(event);
+        game.handleInteraction();
+    }
+});
+
+
+function markButton(event){
+    game.handleInteraction(event)
+    event.target.disabled = true;
+}
 
 
 

@@ -29,31 +29,30 @@ class Phrase {
 /**
 * Checks if passed letter is in phrase
 * @param (string) letter - Letter to check
-*/    checkLetter() {
-		let choice = event.target.innerText;
-		for (let letter of this.phrase) {
-		    if (choice === letter) {
-		      return true;
-		      }
-		}
-		    return false;
-	}
+*/    checkLetter(letter) {
+        if (this.phrase.includes(letter)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 /**
 * Displays passed letter on screen after a match is found
 * @param (string) letter - Letter to display
 */
-    // showMatchedLetter(){
-    //     const letter = document.getElementById('phrase').firstElementChild.children;
-    //     let guess = event.target.innerText;
+    showMatchedLetter(letter){
+        const x = document.getElementById('phrase').firstElementChild.children;
+        // let guess = event.target.innerText;
+        let guess = letter;
 
-    //     for(let i = 0; i < letter.length; i++){
-    //         let check = letter[i].innerText;
-    //         if(guess === check){
-    //             letter[i].className = 'show';
-    //         }
-    //     }
-    // }
+        for(let i = 0; i < x.length; i++){
+            let check = x[i].innerText;
+            if(guess === check){
+                x[i].className = 'show';
+            }
+        }
+    }
 
 
 
