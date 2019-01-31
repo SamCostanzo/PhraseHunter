@@ -4,59 +4,49 @@ class Phrase {
         // this.phrase = game.getRandomPhrase();
     }
 
+    addPhraseToDisplay() {
+        
+        for (let i = 0; i < this.phrase.length; i++) {
+            this.phrase[i].split('');
+            const li = document.createElement('li');
+            li.textContent = this.phrase[i];
 
-        addPhraseToDisplay(){
-            // const li = document.createElement("li");
-            const phraseDiv = document.getElementById("phrase");
-            const ul = phraseDiv.querySelector("ul");
-
-            // const splitArray = this.phrase.split("");
-            // const appendToDiv = phraseDiv.appendChild(ul);
-
-            for(let i = 0; i < this.phrase.length; i++){
-                const li = document.createElement("li");
-                if(this.phrase[i].match(/\s/)){
-                    li.className = 'hide space';
-                } else if(this.phrase[i].match(/[a-z]/)){
-                    li.className = 'hide letter ' + this.phrase[i];
-                    li.innerHTML = this.phrase[i];
-                }
-
-                    ul.appendChild(li);
+            if (this.phrase[i] === ' ') {
+                li.className = `space`;
+            } else {
+                li.className = `hide letter ${this.phrase[i]}`;
             }
-        }
 
+            document.getElementById('phrase').appendChild(li);
+            }
+        }   
 /**
 * Checks if passed letter is in phrase
 * @param (string) letter - Letter to check
-*/    checkLetter(letter) {
-        if (this.phrase.includes(letter)){
-            return true;
-        } else {
-            return false;
-        }
-    }
+*/    
+    checkLetter(letter){
+        let phraseLetters = this.phrase.split('');
+        let matchLetters = phraseLetters.filter(letter => letter !== ' ');
 
+        if (matchLetters.includes(letter)) {
+            return true;
+        } else { 
+            return false;
+        } 
+    }
 /**
 * Displays passed letter on screen after a match is found
 * @param (string) letter - Letter to display
 */
-    showMatchedLetter(letter){
-        const x = document.getElementById('phrase').firstElementChild.children;
-        // let guess = event.target.innerText;
-        let guess = letter;
+    showMatchedLetter(letter) {
+        const boardLetters = document.getElementsByClassName('letter');
 
-        for(let i = 0; i < x.length; i++){
-            let check = x[i].innerText;
-            if(guess === check){
-                x[i].className = 'show';
-            }
+        for (let i = 0; i < boardLetters.length; i++) {
+            if (letter === boardLetters[i].textContent) {
+                boardLetters[i].className = 'show';
+            } 
         }
     }
-
-
-
-
 }
 
 
