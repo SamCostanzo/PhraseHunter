@@ -5,7 +5,6 @@ class Phrase {
     }
 
     addPhraseToDisplay() {
-        
         for (let i = 0; i < this.phrase.length; i++) {
             this.phrase[i].split('');
             const li = document.createElement('li');
@@ -16,8 +15,9 @@ class Phrase {
             } else {
                 li.className = `hide letter ${this.phrase[i]}`;
             }
-
-            document.getElementById('phrase').appendChild(li);
+            const phraseDiv = document.getElementById('phrase');
+            const phraseUl = phraseDiv.querySelector("ul");
+            phraseUl.appendChild(li);
             }
         }   
 /**
@@ -39,11 +39,12 @@ class Phrase {
 * @param (string) letter - Letter to display
 */
     showMatchedLetter(letter) {
-        const boardLetters = document.getElementsByClassName('letter');
+      const ul = document.querySelector('ul');
+      const li = ul.querySelectorAll('li');
 
-        for (let i = 0; i < boardLetters.length; i++) {
-            if (letter === boardLetters[i].textContent) {
-                boardLetters[i].className = 'show';
+        for (let i = 0; i < li.length; i++) {
+            if (letter === li[i].textContent) {
+                li[i].className = 'show';
             } 
         }
     }

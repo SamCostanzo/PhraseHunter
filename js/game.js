@@ -16,8 +16,6 @@ class Game {
                 return phrases;
         }
 
-
-
     /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
@@ -110,9 +108,11 @@ won
         if(gameWon === true){
             document.getElementById('game-over-message').innerText = 'You won!';
             document.getElementById('overlay').className = 'win';
+            document.getElementById("btn__reset").textContent = "Play again";
         } else {
             document.getElementById('game-over-message').innerText = 'You lost. Better luck next time!';
             document.getElementById('overlay').className = 'lose';
+            document.getElementById("btn__reset").textContent = "Try again";
         }
     }
 
@@ -127,13 +127,16 @@ won
         for (let i = 0; i < li.length; i++) {
             li[i].remove();       
         }
- 
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].disabled = false;
-            buttons[i].className = 'key';
-        }
         
-        img.forEach(image => image.src = 'images/liveHeart.png'); 
+            this.activePhrase = this.getRandomPhrase();
+            this.activePhrase.addPhraseToDisplay();
+
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = false;
+                buttons[i].className = 'key';
+        }
+
+            img.forEach(image => image.src = 'images/liveHeart.png'); 
         }
     }
 

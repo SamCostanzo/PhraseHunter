@@ -5,6 +5,7 @@ const game = new Game();
 // Starts the game when the button is clicked. Calls a new game object
 startGameButton.addEventListener('click', () => {
     game.startGame();
+    game.resetGame();
 });
 
 // Click event listener for every keyboard key
