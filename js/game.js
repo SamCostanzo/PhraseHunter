@@ -10,6 +10,17 @@ class Game {
         const phrases = [new Phrase("Go Cubs Go"),
                         new Phrase("New York Giants"),
                         new Phrase("Not all who wander are lost"),
+                        new Phrase("God of War"),
+                        new Phrase("Horizon zero dawn"),
+                        new Phrase("the witcher"),
+                        new Phrase("cats are cool"),
+                        new Phrase("blast off"),
+                        new Phrase("saturn"),
+                        new Phrase("neptune"),
+                        new Phrase("venus"),
+                        new Phrase("warframe"),
+                        new Phrase("lord of the rings"),
+                        new Phrase("to infinity and beyond"),
                         new Phrase("Alexander Hamilton"),
                         new Phrase("Here comes the sun")];
                 
