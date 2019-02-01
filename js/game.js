@@ -123,7 +123,7 @@ won
         const qwertyDiv = document.getElementById('qwerty');
         const buttons = qwertyDiv.querySelectorAll('button');
         const img = document.querySelectorAll('img');
- 
+        this.missed = 0;
         for (let i = 0; i < li.length; i++) {
             li[i].remove();       
         }
@@ -138,6 +138,7 @@ won
 
             img.forEach(image => image.src = 'images/liveHeart.png'); 
         }
+        
     }
 
 
