@@ -121,7 +121,7 @@ won
             document.getElementById('overlay').className = 'win';
             document.getElementById("btn__reset").textContent = "Play again";
         } else {
-            document.getElementById('game-over-message').innerText = 'You lost. Better luck next time!';
+            document.getElementById('game-over-message').innerText = "At first you don't succeed...";
             document.getElementById('overlay').className = 'lose';
             document.getElementById("btn__reset").textContent = "Try again";
         }
